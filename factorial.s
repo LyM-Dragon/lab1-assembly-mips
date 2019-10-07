@@ -1,11 +1,11 @@
 # Lab1 mips lmolina 
 .data
-saludo: .asciiz "ingrese numero: "
+saludo: .asciiz "ingrese numero para fibonacci: "
 .text
 .globl main
     main:
       lectura:
-        li $s0, 1 # variable auxiliar
+        li $s0, 1 # variable auxiliar para representar el valor 1
         la $a0, saludo
         li $v0, 4
         syscall
