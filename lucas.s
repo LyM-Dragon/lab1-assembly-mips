@@ -1,14 +1,10 @@
 # Lab1 mips lmolina 
 .data
-saludo: .asciiz "ingrese numero para suma de serie de lucas: "
+saludo: .asciiz "ingrese numero para calcular suma de serie de lucas: "
 .text
 .globl main
     main:
       lectura:
-        li $s0, 1 # variable auxiliar para representar el valor 1
-        li $s1, 2 # varialbe x = 2 (primer numero de lucas)
-        li $s2, 1 # varialbe y = 1 (segundo numero de lucas)
-        li $s3, 3 # variable z = 3 (tercer numero de lucas)
         la $a0, saludo
         li $v0, 4
         syscall
@@ -16,6 +12,11 @@ saludo: .asciiz "ingrese numero para suma de serie de lucas: "
         li $v0, 5
         syscall
         add $a1, $v0, $0
+      setup:
+        li $s0, 1 # variable auxiliar para representar el valor 1
+        li $s1, 2 # varialbe x = 2 (primer numero de lucas)
+        li $s2, 1 # varialbe y = 1 (segundo numero de lucas)
+        li $s3, 3 # variable z = 3 (tercer numero de lucas)
       lucas:
         slti $t0, $a1, 1 # si el argumento dado es menor que 1 $t0 es 1 sino es 0
         beq $t0, $s0, exit # si $a1 es menor que 1 salta a exit

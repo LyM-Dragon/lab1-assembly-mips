@@ -1,11 +1,10 @@
 # Lab1 mips lmolina 
 .data
-saludo: .asciiz "ingrese numero para fibonacci: "
+saludo: .asciiz "ingrese numero para calcular factorial: "
 .text
 .globl main
     main:
-      lectura:
-        li $s0, 1 # variable auxiliar para representar el valor 1
+      lectura:        
         la $a0, saludo
         li $v0, 4
         syscall
@@ -13,6 +12,8 @@ saludo: .asciiz "ingrese numero para fibonacci: "
         li $v0, 5
         syscall
         add $a1, $v0, $0
+      setup:
+        li $s0, 1 # variable auxiliar para representar el valor 1
       factorial:
         slti $t0, $a1, 2 # si el argumento dado es menor que 2 $t0 es 1 sino es 0
         beq $t0, $s0, exit # si $a1 es menor que 2 salta a exit
